@@ -1,0 +1,226 @@
+.nav-container{
+    width: 98vw;
+    height: 50px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 4px 8px cyan;
+}
+.all-btns{
+    width: 350px;
+    height: 35px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    
+}
+.all{
+    width: 40px;
+    height: 25px;
+    background: aliceblue;
+    border-radius: 5px;
+    border: 2px solid crimson;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.all:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.red{
+    width: 40px;
+    height: 25px;
+    background: red;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.red:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.blue{
+    width: 40px;
+    height: 25px;
+    background: blue;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.blue:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.yellow{
+    width: 40px;
+    height: 25px;
+    background: yellow;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.yellow:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.black{
+    width: 40px;
+    height: 25px;
+    background: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.black:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.upper-tick{
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.upper-tick:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+.task-btn{
+    width: 100px;
+    height: 35px;
+    background-color: chartreuse;
+    color: white;
+    border-radius: 20px;
+    border: cyan;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.task-btn:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+
+/*******************************************************************
+*                        POP UP SECTION                           *
+********************************************************************/
+.pop-div{
+    width: 500px;
+    height: 300px;
+    background-color: cadetblue;
+    position: fixed;
+    top: 150px;
+    left: 35%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px cyan;
+}
+.input-div{
+    padding: 20px;
+}
+#taskInput{
+    width: 250px;
+    height: 35px;
+    background-color: cadetblue;
+    border: 3px solid cyan;
+    border-radius: 10px;
+    outline: none;
+    text-align: center;
+    color: cyan;
+    font-size: large;
+}
+#done-btn{
+    width: 70px;
+    height: 30px;
+    margin: 100px;
+    background-color: crimson;
+    color: cyan;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+#done-btn:active{
+    box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
+}
+#close-btn{
+    width: 30px;
+    height: 20px;
+}
+.button-div{
+    width: 150px;
+    height: 100%;
+    background-color: #333;
+    border-radius: 10px;
+}
+.button-div button{
+    display: block;
+    margin: 20px;
+}
+
+/*************************************************
+*            PASTE DIV                           *
+***************************************************/
+.paste-div{
+    width: 350px;
+    height: 250px;
+    background-color: rgb(143, 104, 104);
+    border-radius: 10px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 0px 4px 8px rgb(143, 104, 104);
+}
+.color-div{
+    width: 100%;
+    height: 20px;
+    background-color: aqua;
+    border-radius: 20px;
+}
+#paste-input{
+    width: auto;
+    height: 20px;
+    text-align: center;
+    font-size: large;
+    background-color: rgb(143, 104, 104);
+    color: white;
+    border: none;
+    /* border-radius: 20px; */
+    margin: 50px;
+}
+.paste-button-div{
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 70px;
+    visibility: hidden;
+}
+.paste-button-div button{
+    background: none;
+    border: none;
+}
+#lock-btn{
+    position: relative;
+    left: 90%;
+    top: 20%;
+    background: none;
+    border: none;
+}
