@@ -1,11 +1,12 @@
 let body = document.querySelector("body");
-let all = document.querySelector(".all");
-let red = document.querySelector(".red");
-let blue = document.querySelector(".blue");
-let black = document.querySelector(".black");
-let yellow = document.querySelector(".yellow");
+let all = document.querySelector("#all");
+let red = document.querySelector("#red");
+let blue = document.querySelector("#blue");
+let black = document.querySelector("#black");
+let yellow = document.querySelector("#yellow");
 let upperTick = document.querySelector(".upper-tick");
 let createTask = document.querySelector(".task-btn");
+let mainDiv = document.querySelector(".main-div");
 
 createTask.addEventListener("click", (event) => {
   // POP-UP DIV
@@ -38,59 +39,87 @@ createTask.addEventListener("click", (event) => {
   inputDiv.append(doneBtn);
 
   doneBtn.addEventListener("click", (event) => {
-    popDiv.remove();
-    let pasteDiv = document.createElement("div");
-    pasteDiv.classList.add("paste-div");
-    body.append(pasteDiv);
+    if (taskInput.value.length > 1) {
+      popDiv.remove();
+      body.append(mainDiv);
+      // mainDiv.append(pasteDiv)
 
-    let colorDiv = document.createElement("div");
-    colorDiv.classList.add("color-div");
-    pasteDiv.append(colorDiv);
+      let pasteDiv = document.createElement("div");
+      pasteDiv.classList.add("paste-div");
+      mainDiv.append(pasteDiv);
 
-    let pasteInput = document.createElement("input");
-    pasteInput.type = "text";
-    pasteInput.setAttribute("id", "paste-input");
-    pasteInput.setAttribute("readonly", "readonly");
-    pasteInput.value = taskInput.value;
-    pasteDiv.append(pasteInput);
+      let colorDiv = document.createElement("div");
+      colorDiv.classList.add("color-div");
+      pasteDiv.append(colorDiv);
 
-    let pasteButtonDiv = document.createElement("div");
-    pasteButtonDiv.classList.add("paste-button-div");
-    pasteDiv.append(pasteButtonDiv);
+      let pasteInput = document.createElement("input");
+      pasteInput.type = "text";
+      pasteInput.setAttribute("id", "paste-input");
+      pasteInput.setAttribute("readonly", "readonly");
+      pasteInput.value = taskInput.value;
+      pasteDiv.append(pasteInput);
 
-    let downTick = document.createElement("button");
-    downTick.innerHTML = '<i class="fa-solid fa-check"></i>';
-    downTick.setAttribute("id", "down-tick");
-    pasteButtonDiv.append(downTick);
+      let pasteButtonDiv = document.createElement("div");
+      pasteButtonDiv.classList.add("paste-button-div");
+      pasteDiv.append(pasteButtonDiv);
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-    deleteBtn.setAttribute("id", "delete-btn");
-    pasteButtonDiv.append(deleteBtn);
-    deleteBtn.addEventListener("click", (event) => {
-      pasteDiv.remove();
-    });
+      let downTick = document.createElement("button");
+      downTick.innerHTML = '<i class="fa-solid fa-check"></i>';
+      downTick.setAttribute("id", "down-tick");
+      pasteButtonDiv.append(downTick);
+      downTick.addEventListener("click", (event) => {
+        pasteInput.setAttribute("readonly", "readonly");
+        pasteButtonDiv.style.visibility = 'hidden';
+        lockBtn.innerHTML = '<i class="fa-solid fa-lock"></i>';
+        deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+      });
 
-    let editBtn = document.createElement("button");
-    editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
-    editBtn.setAttribute("id", "edit-btn");
-    pasteButtonDiv.append(editBtn);
-    editBtn.addEventListener('click', (event)=>{
+      let deleteBtn = document.createElement("button");
+      deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+      deleteBtn.setAttribute("id", "delete-btn");
+      pasteButtonDiv.append(deleteBtn);
+      deleteBtn.addEventListener("click", (event) => {
+        pasteDiv.remove();
+      });
+
+      let editBtn = document.createElement("button");
+      editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+      editBtn.setAttribute("id", "edit-btn");
+      pasteButtonDiv.append(editBtn);
+      editBtn.addEventListener("click", (event) => {
         pasteInput.removeAttribute("readonly");
-    });
+      });
 
-    let colorBtn = document.createElement("button");
-    colorBtn.setAttribute("id", "color-btn");
-    pasteButtonDiv.append(colorBtn);
+      let colorBtn = document.createElement("button");
+      colorBtn.setAttribute("id", "color-btn");
+      pasteButtonDiv.append(colorBtn);
+      colorBtn.addEventListener("click", (event) => {
+        
+        let colors = ["red", "blue", "black", "yellow"];
+        let randomNumber = getRandomNumber();
+        function getRandomNumber() {
+          return Math.floor(Math.random() * colors.length);
+        }
+        colorBtn.style.backgroundColor = colors[randomNumber];
+        colorDiv.style.backgroundColor = colors[randomNumber];
+      });
 
-    let lockBtn = document.createElement("button");
-    lockBtn.innerHTML = '<i class="fa-solid fa-lock"></i>';
-    lockBtn.setAttribute("id", "lock-btn");
-    pasteDiv.append(lockBtn);
-    lockBtn.addEventListener('click', (event)=>{
+      let lockBtn = document.createElement("button");
+      lockBtn.innerHTML = '<i class="fa-solid fa-lock"></i>';
+      lockBtn.setAttribute("id", "lock-btn");
+      pasteDiv.append(lockBtn);
+      lockBtn.addEventListener("click", (event) => {
         lockBtn.innerHTML = '<i class="fa-solid fa-lock-open"></i>';
-        pasteButtonDiv.style.visibility = 'visible';
-    });
+        pasteButtonDiv.style.visibility = "visible";
+      });
+
+      redBtn.addEventListener("click", (event) => {
+        console.log(event.target)
+        colorDiv.style.backgroundColor = 'red';
+      });
+    }
+
+    
   });
 
   // COLOR BUTTON DIV
@@ -101,6 +130,7 @@ createTask.addEventListener("click", (event) => {
   let redBtn = document.createElement("button");
   redBtn.classList.add("red");
   buttonDiv.append(redBtn);
+  
 
   let blueBtn = document.createElement("button");
   blueBtn.classList.add("blue");
@@ -115,4 +145,14 @@ createTask.addEventListener("click", (event) => {
   buttonDiv.append(yellowBtn);
 
   body.append(popDiv);
+});
+
+upperTick.addEventListener("click", (event) => {
+  // mainDiv.style.visibility = 'hidden';
+  mainDiv.remove();
+});
+
+all.addEventListener("click", (event) => {
+  // mainDiv.style.visibility = 'visible';
+  body.append(mainDiv);
 });

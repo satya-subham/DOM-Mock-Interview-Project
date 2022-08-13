@@ -122,7 +122,7 @@
 .pop-div{
     width: 500px;
     height: 300px;
-    background-color: cadetblue;
+    background-color: cadetblue transparent;
     position: fixed;
     top: 150px;
     left: 35%;
@@ -130,6 +130,7 @@
     justify-content: space-between;
     border-radius: 10px;
     box-shadow: 0px 4px 8px cyan;
+    z-index: 1;
 }
 .input-div{
     padding: 20px;
@@ -179,6 +180,11 @@
 /*************************************************
 *            PASTE DIV                           *
 ***************************************************/
+.main-div{
+    max-width: 98vw;
+    height: auto;
+    
+}
 .paste-div{
     width: 350px;
     height: 250px;
@@ -191,7 +197,7 @@
 .color-div{
     width: 100%;
     height: 20px;
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 20px;
 }
 #paste-input{
@@ -216,6 +222,13 @@
 .paste-button-div button{
     background: none;
     border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+.paste-button-div button:active{
+  box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
 }
 #lock-btn{
     position: relative;
@@ -223,4 +236,11 @@
     top: 20%;
     background: none;
     border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 8px cyan;
+}
+#lock-btn:active{
+  box-shadow: 0px 4px 8px #333;
+  transform: scale(0.90);
 }
